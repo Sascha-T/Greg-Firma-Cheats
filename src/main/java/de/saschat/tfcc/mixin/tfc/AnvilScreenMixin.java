@@ -1,13 +1,9 @@
-package de.saschat.tfcc.mixin;
+package de.saschat.tfcc.mixin.tfc;
 
-import de.saschat.tfcc.ForgeOrder;
-import de.saschat.tfcc.PreStep;
-import de.saschat.tfcc.TFCCMod;
-import de.saschat.tfcc.TFCForger;
-import it.unimi.dsi.fastutil.ints.IntArrayFIFOQueue;
-import it.unimi.dsi.fastutil.ints.IntArrayList;
-import it.unimi.dsi.fastutil.ints.IntList;
-import it.unimi.dsi.fastutil.ints.IntPriorityQueue;
+import de.saschat.tfcc.integrations.tfc.Main;
+import de.saschat.tfcc.integrations.tfc.forging.ForgeOrder;
+import de.saschat.tfcc.integrations.tfc.forging.PreStep;
+import de.saschat.tfcc.integrations.tfc.forging.TFCForger;
 import net.dries007.tfc.client.screen.AnvilScreen;
 import net.dries007.tfc.client.screen.BlockEntityScreen;
 import net.dries007.tfc.common.blockentities.AnvilBlockEntity;
@@ -32,14 +28,12 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.network.PacketDistributor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.extensibility.IMixinConfig;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
-import net.minecraft.nbt.CompoundTag;
 
 @Mixin(AnvilScreen.class)
 public class AnvilScreenMixin extends BlockEntityScreen<AnvilBlockEntity, AnvilContainer> implements TFCForger {
@@ -81,7 +75,7 @@ public class AnvilScreenMixin extends BlockEntityScreen<AnvilBlockEntity, AnvilC
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifier) {
-        if(keyCode == TFCCMod.FORGE_KEY.getKey().getValue() && canForge()) {
+        if(keyCode == Main.TFC_FORGE_KEY.getKey().getValue() && canForge()) {
             performSmithing();
             return true;
         }
@@ -198,19 +192,19 @@ public class AnvilScreenMixin extends BlockEntityScreen<AnvilBlockEntity, AnvilC
         AnvilBlockEntity.AnvilInventory inv = ((InventoryBlockEntityAccessor<AnvilBlockEntity.AnvilInventory>) blockEntity).getInventory();
         try {
             if(previousItem != null && !inv.getItem().is(previousItem)) {
-                if(TFCCMod.LAST_RECIPE != null) {
-                    ItemStack stack = TFCCMod.LAST_RECIPE.getInput().getItems()[0];
+                if(Main.LAST_RECIPE != null) {
+                    ItemStack stack = Main.LAST_RECIPE.getInput().getItems()[0];
                     if(stack.is(inv.getItem().getItem())) {
                         PacketHandler.send(PacketDistributor.SERVER.noArg(), new ScreenButtonPacket(8, null));
                         CompoundTag tag = new CompoundTag();
-                        tag.putString("recipe", TFCCMod.LAST_RECIPE.getId().toString());
+                        tag.putString("recipe", Main.LAST_RECIPE.getId().toString());
                         PacketHandler.send(PacketDistributor.SERVER.noArg(), new ScreenButtonPacket(0, tag));
                     }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-            TFCCMod.LAST_RECIPE = null;
+            Main.LAST_RECIPE = null;
         }
         previousItem = inv.getItem().getItem();
     }

@@ -1,8 +1,7 @@
-package de.saschat.tfcc.mixin;
+package de.saschat.tfcc.mixin.tfc;
 
-import de.saschat.tfcc.TFCCMod;
+import de.saschat.tfcc.integrations.tfc.Main;
 import net.dries007.tfc.client.screen.button.AnvilPlanSelectButton;
-import net.dries007.tfc.common.blocks.plant.TFCCactusBlock;
 import net.dries007.tfc.common.recipes.AnvilRecipe;
 import net.minecraft.client.gui.components.Button;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,6 +14,6 @@ public class AnvilPlanSelectButtonMixin {
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/nbt/CompoundTag;putString(Ljava/lang/String;Ljava/lang/String;)V"), method = "lambda$new$0")
     private static void setRecipe(AnvilRecipe recipe, Button button, CallbackInfo ci) {
-        TFCCMod.LAST_RECIPE = recipe;
+        Main.LAST_RECIPE = recipe;
     }
 }

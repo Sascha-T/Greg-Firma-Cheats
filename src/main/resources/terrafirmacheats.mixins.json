@@ -4,13 +4,16 @@
   "package": "de.saschat.tfcc.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "terrafirmacheats.refmap.json",
+  "plugin": "de.saschat.tfcc.TFCCMixinPlugin",
   "mixins": [
-    "AnvilPlanSelectButtonMixin",
-    "ForgeRuleAccessor",
-    "InventoryBlockEntityAccessor"
+    "alekiships.EmptyCompartmentEntityMixin",
+    "tfc.AnvilPlanSelectButtonMixin",
+    "tfc.ForgeRuleAccessor",
+    "tfc.InventoryBlockEntityAccessor"
   ],
   "client": [
-    "AnvilScreenMixin"
+    "alekiships.LocalPlayerMixin",
+    "tfc.AnvilScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

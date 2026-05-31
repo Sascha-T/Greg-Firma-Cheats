@@ -1,4 +1,4 @@
-package de.saschat.tfcc.mixin;
+package de.saschat.tfcc.mixin.tfc;
 
 import net.dries007.tfc.common.blockentities.InventoryBlockEntity;
 import net.minecraft.nbt.CompoundTag;

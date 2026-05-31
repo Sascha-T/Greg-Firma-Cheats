@@ -63,8 +63,13 @@ ordering = "NONE"
 side = "BOTH"
 [[dependencies."${mod_id}"]]
 modId = "tfc"
-mandatory = true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
+mandatory = false
 versionRange = "[3.2.14,]"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "alekiships"
+mandatory = false
+versionRange = "[1.0.14,]"
 ordering = "NONE"
 side = "BOTH"

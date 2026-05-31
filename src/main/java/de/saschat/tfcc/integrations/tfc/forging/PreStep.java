@@ -1,4 +1,4 @@
-package de.saschat.tfcc;
+package de.saschat.tfcc.integrations.tfc.forging;
 
 import net.dries007.tfc.common.capabilities.forge.ForgeStep;
 

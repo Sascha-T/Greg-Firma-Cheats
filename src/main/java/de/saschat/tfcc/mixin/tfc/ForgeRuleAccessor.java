@@ -1,4 +1,4 @@
-package de.saschat.tfcc.mixin;
+package de.saschat.tfcc.mixin.tfc;
 
 import net.dries007.tfc.common.capabilities.forge.ForgeRule;
 import net.dries007.tfc.common.capabilities.forge.ForgeStep;
