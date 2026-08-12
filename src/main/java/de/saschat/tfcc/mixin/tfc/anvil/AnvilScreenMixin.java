@@ -1,9 +1,10 @@
-package de.saschat.tfcc.mixin.tfc;
+package de.saschat.tfcc.mixin.tfc.anvil;
 
 import de.saschat.tfcc.integrations.tfc.Main;
 import de.saschat.tfcc.integrations.tfc.forging.ForgeOrder;
 import de.saschat.tfcc.integrations.tfc.forging.PreStep;
 import de.saschat.tfcc.integrations.tfc.forging.TFCForger;
+import de.saschat.tfcc.mixin.tfc.InventoryBlockEntityAccessor;
 import net.dries007.tfc.client.screen.AnvilScreen;
 import net.dries007.tfc.client.screen.BlockEntityScreen;
 import net.dries007.tfc.common.blockentities.AnvilBlockEntity;

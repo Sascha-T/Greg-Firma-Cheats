@@ -1,4 +1,4 @@
-package de.saschat.tfcc.mixin.tfc;
+package de.saschat.tfcc.mixin.tfc.anvil;
 
 import de.saschat.tfcc.integrations.tfc.Main;
 import net.dries007.tfc.client.screen.button.AnvilPlanSelectButton;
