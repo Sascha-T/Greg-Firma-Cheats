@@ -7,13 +7,15 @@
   "plugin": "de.saschat.tfcc.TFCCMixinPlugin",
   "mixins": [
     "alekiships.EmptyCompartmentEntityMixin",
-    "tfc.AnvilPlanSelectButtonMixin",
-    "tfc.ForgeRuleAccessor",
-    "tfc.InventoryBlockEntityAccessor"
+    "tfc.InventoryBlockEntityAccessor",
+    "tfc.anvil.AnvilPlanSelectButtonMixin",
+    "tfc.anvil.ForgeRuleAccessor",
+    "tfc.blast.BlastFurnaceBlockEntityAccessor"
   ],
   "client": [
     "alekiships.LocalPlayerMixin",
-    "tfc.AnvilScreenMixin"
+    "tfc.anvil.AnvilScreenMixin",
+    "tfc.blast.BlastFurnaceScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -159,9 +159,9 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    compileOnly fg.deobf("curse.maven:tfc-302973:6187491")
-    compileOnly fg.deobf("curse.maven:alekiships-1068445:5963449")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.20.1-81-FORGE")
+    implementation fg.deobf("curse.maven:tfc-302973:6187491")
+    implementation fg.deobf("curse.maven:alekiships-1068445:5963449")
+    implementation fg.deobf("vazkii.patchouli:Patchouli:1.20.1-81-FORGE")
 
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
